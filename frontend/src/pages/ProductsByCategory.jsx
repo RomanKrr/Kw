@@ -63,9 +63,15 @@ const ProductsByCategory = () => {
 
   return (
     <section>
-      <ShopHeader cat={categorySymbols[category]} />
-      <div className="clothes_container">
-        {/* <div className="clothes_header">
+      {loading ? (
+        <div className="alert_wrapper">
+          <p className='load'>Завантаження...</p>
+        </div>
+      ) : (
+        <>
+          <ShopHeader cat={categorySymbols[category]} />
+          <div className="clothes_container">
+            {/* <div className="clothes_header">
           <div className="bst_btn" onClick={openHandler} >
             <CiShoppingBasket className="basket_logo" />
           </div>
@@ -77,61 +83,59 @@ const ProductsByCategory = () => {
             </p>
           </div>
         </div> */}
-        <div className="sort_side">
-          {/* <div className="filter_btn"></div> */}
-          <div className="sort_by">
-            <select value={selectedSort} onChange={sortChange}>
-              <option value="">Sort By</option>
-              <option value="low-hight">Price: Low to High</option>
-              <option value="hight-low">Price: High to Low</option>
-              {/* <option value="">Sort By</option>
+            <div className="sort_side">
+              {/* <div className="filter_btn"></div> */}
+              <div className="sort_by">
+                <select value={selectedSort} onChange={sortChange}>
+                  <option value="">Sort By</option>
+                  <option value="low-hight">Price: Low to High</option>
+                  <option value="hight-low">Price: High to Low</option>
+                  {/* <option value="">Sort By</option>
               <option value="clothes">clothes</option>
               <option value="auto-parts">auto-parts</option>
               <option value="body-kits">body-kits</option>
               <option value="accessories">accessories</option> */}
-            </select>
-          </div>
-        </div>
-        {loading ? (
-          <div className="alert_wrapper">
-            <p className='load'>Завантаження...</p>
-          </div>
-        ) : (
-          <div className="card_container">
-            {sortProducts().length > 0 ? (
-              sortProducts().map((product, index) => (
-                <Link to={`/productPage/${product._id}`} className="card" key={index}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 0 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                  >
-                    <div className="card_image_cont">
-                      <img src={product.images[0]} alt={product.productName} className="card_image" />
-                    </div>
-                    <div className="card_info">
-                      <h1 className="card_name">{product.productName}</h1>
-                      <div className="card_info_container">
-                        {category === "clothes" ? (
-                          <p className="card_color">Color
-                            <span className="color_dot black"></span>
-                            <span className="color_dot purple"></span>
-                            <span className="color_dot white"></span>
-                          </p>
-                        ) : null}
-                        <p className="card_price">${product.price}</p>
+                </select>
+              </div>
+            </div>
+
+            <div className="card_container">
+              {sortProducts().length > 0 ? (
+                sortProducts().map((product, index) => (
+                  <Link to={`/productPage/${product._id}`} className="card" key={index}>
+                    <motion.div
+                      initial={{ opacity: 0, y: 0 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                    >
+                      <div className="card_image_cont">
+                        <img src={product.images[0]} alt={product.productName} className="card_image" />
                       </div>
-                    </div>
-                    <div className="card_button">GO TO SHOP</div>
-                  </motion.div>
-                </Link>
-              ))
-            ) : (
-              <p>No products found for this category.</p>
-            )}
+                      <div className="card_info">
+                        <h1 className="card_name">{product.productName}</h1>
+                        <div className="card_info_container">
+                          {category === "clothes" ? (
+                            <p className="card_color">Color
+                              <span className="color_dot black"></span>
+                              <span className="color_dot purple"></span>
+                              <span className="color_dot white"></span>
+                            </p>
+                          ) : null}
+                          <p className="card_price">${product.price}</p>
+                        </div>
+                      </div>
+                      <div className="card_button">GO TO SHOP</div>
+                    </motion.div>
+                  </Link>
+                ))
+              ) : (
+                <p>No products found for this category.</p>
+              )}
+            </div>
           </div>
-        )}
-      </div>
+        </>
+      )}
+
     </section>
   );
 };

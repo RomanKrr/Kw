@@ -52,7 +52,7 @@ const Banner = () => {
                     className="bg-dragon"
                     initial={{ opacity: 0, scale: 0.5, rotate: -30 }}
                     animate={{ opacity: 0.7, scale: 1, rotate: 0 }}
-                    transition={{ duration: 1.5, ease: "easeOut", type: "spring", stiffness: 80 }}
+                    transition={{ duration: 2, ease: "easeOut", type: "spring", stiffness: 80 }}
                 />
             </div>
         </section>

@@ -34,7 +34,7 @@ const HatComp = () => {
                             <a href="#about-section">ABOUT</a>
                         </li>
                         <Link to="adminPage">
-                            <li><CiUser /></li>
+                            <li><CiUser  className="icon"/></li>
                         </Link>
                     </ul>
                 </nav>
