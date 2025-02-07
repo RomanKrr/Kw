@@ -37,9 +37,11 @@ const ProductsByCategory = () => {
 
   useEffect(() => {
     if (category) {
+      console.log("Fetching products for category:", category);
       getAllProductsByCategory(category);
     }
-  }, [getAllProductsByCategory, category]);
+  }, [category, getAllProductsByCategory]);
+  
 
   // console.log("products:", allProducts);
 
