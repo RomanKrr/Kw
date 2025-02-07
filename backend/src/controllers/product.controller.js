@@ -29,12 +29,9 @@ export const getProductsByCategory = async (req, res) => {
   try {
     const products = await Product.find({ category });
 
-    if (!products || products.length === 0) {
-        return res.status(404).json({ message: 'Продукти не знайдені для цієї категорії.' });
-      }
-  
-      // Повернути знайдені продукти
-      return res.status(200).json(products);
+    console.log("Found products:", products);
+
+    res.json({ products });
   } catch (error) {
     console.log("Error in getProductsByCategory controller", error.message);
     res.status(500).json({ message: "Server error", error: error.message });
