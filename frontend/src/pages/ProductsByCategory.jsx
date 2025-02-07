@@ -1,9 +1,9 @@
 import { Link, useParams } from "react-router-dom";
-import { CiShoppingBasket } from "react-icons/ci";
 import "../pageStyles/Clothes.css";
 import { useEffect, useState } from "react";
 import { useProductStore } from "../store/useProductStore";
 import Basket from "../components/Basket/Basket";
+import ShopHeader from "../components/ShopHeader/ShopHeader";
 
 const ProductsByCategory = () => {
   const { allProducts, getAllProductsByCategory, loading } = useProductStore();
@@ -41,7 +41,7 @@ const ProductsByCategory = () => {
       getAllProductsByCategory(category);
     }
   }, [category, getAllProductsByCategory]);
-  
+
 
   // console.log("products:", allProducts);
 
@@ -59,8 +59,9 @@ const ProductsByCategory = () => {
 
   return (
     <section>
+      <ShopHeader cat={categorySymbols[category]} />
       <div className="clothes_container">
-        <div className="clothes_header">
+        {/* <div className="clothes_header">
           <div className="bst_btn" onClick={openHandler} >
             <CiShoppingBasket className="basket_logo" />
           </div>
@@ -71,7 +72,7 @@ const ProductsByCategory = () => {
             <p>{category.toUpperCase()}<br />{categorySymbols[category] || ""}
             </p>
           </div>
-        </div>
+        </div> */}
         <div className="sort_side">
           <div className="filter_btn">Filter</div>
           <div className="sort_by">

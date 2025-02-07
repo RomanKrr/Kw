@@ -17,8 +17,19 @@ export const useCartStore = create((set, get) => ({
         set({ cart: updateCart })
         localStorage.setItem("cart", JSON.stringify(updateCart));
         toast.success("Product added to cart!");
-    }
+    },
 
+    getCartItem: () => {
+        const ls = JSON.parse(localStorage.getItem("cart"));
+        if (ls) {
+            set({ cart: ls })
+        }
+    },
 
+    deleteAllItems: () => {
+        set({ cart: [] }); 
+        localStorage.removeItem("cart"); 
+        toast.success("Cart cleared!");
+    }    
 }));
 

@@ -121,33 +121,6 @@
     background-color: white;
 }
 
-.clothes_header {
-    display: flex;
-    align-items: center;
-    /* justify-content: space-between; */
-    width: 100%;
-    padding: 0 1.5rem;
-}
-
-
-.basket_logo {
-    font-size: 2em;
-    color: var(--text-color);
-    text-align: start;
-    cursor: pointer;
-}
-
-.categories_name {
-    text-align: center;
-    margin: 0 auto;
-    transform: translate(-10%);
-    font-family: "Cinzel", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1.4em;
-}
-
 .sort_side{
     display: flex;
     align-items: center;

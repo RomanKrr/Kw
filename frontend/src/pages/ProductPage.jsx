@@ -6,6 +6,7 @@ import { useProductStore } from "../store/useProductStore";
 import { useEffect, useState } from "react";
 import { useCartStore } from "../store/useCartStore";
 import ProductImages from "../components/ProductImages/ProductImages";
+import ShopHeader from "../components/ShopHeader/ShopHeader";
 
 const ProductPage = () => {
     const { productId } = useParams();
@@ -54,7 +55,8 @@ const ProductPage = () => {
     return (
         <section>
             <div className="product_container">
-                <div className="clothes_header">
+                <ShopHeader/>
+                {/* <div className="clothes_header">
                     <CiShoppingBasket className="basket_logo" />
                     <div className="categories_name">
                         <p>
@@ -64,7 +66,7 @@ const ProductPage = () => {
                             {categorySymbols[product?.category] || ""}
                         </p>
                     </div>
-                </div>
+                </div> */}
 
                 {/* {loading ? (
                     <div className="alert_wrapper">

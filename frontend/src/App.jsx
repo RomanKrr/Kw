@@ -9,6 +9,7 @@ import CategoryPage from './pages/CategoryPage';
 import AdminPage from './pages/AdminPage';
 import { Toaster } from 'react-hot-toast';
 import ProductPage from './pages/ProductPage';
+import Blank from './components/Blank';
 
 function App() {
   const location = useLocation();
@@ -22,10 +23,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="/categoryPage" element={<CategoryPage />} />
           <Route path="/category/:category" element={<ProductsByCategory />} />
           <Route path="/adminPage" element={<AdminPage />} />
           <Route path="/productPage/:productId" element={<ProductPage />} />
+        </Route>
+
+        <Route element={<Blank />}>
+          <Route path="/categoryPage" element={<CategoryPage />} />
         </Route>
       </Routes>
       <Toaster />

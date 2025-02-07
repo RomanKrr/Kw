@@ -9,7 +9,7 @@ const HomePage = () => {
     <>
         <Banner/>     
         <ImagesExample/>     
-        <About/>     
+        {/* <About/>      */}
     </>
   )
 }

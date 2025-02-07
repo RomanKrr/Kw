@@ -23,14 +23,10 @@
 .product_image_container {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    /* Перша колонка більша */
     grid-template-rows: 1fr 1fr;
-    /* Дві рівні рядки */
     gap: 10px;
-    /* Відступ між зображеннями */
     width: 100%;
     max-width: 600px;
-    /* Адаптивна ширина */
 }
 
 .product_image_container .pr_img:first-child {
@@ -64,6 +60,7 @@
     font-family: "Blinker", serif;
     font-weight: 300;
     font-style: normal;
+    cursor: pointer;
 }
 
 .product_name {
