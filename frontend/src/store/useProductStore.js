@@ -47,12 +47,13 @@ export const useProductStore = create((set) => ({
 
             console.log("API response:", response);
             //?
-            if (response && response.data && Array.isArray(response.data.products)) {
+            if (response.status === 200 && response.data && Array.isArray(response.data.products)) {
                 set({ allProducts: response.data.products });
             } else {
                 console.error("Invalid API response structure:", response);
                 set({ allProducts: [] });
             }
+            
         } catch (error) {
             console.error("Error fetching products by category:", error.message);
             set({ allProducts: [] });

@@ -23,23 +23,20 @@ import Product from "../models/product.model.js";
 // }
 
 export const getProductsByCategory = async (req, res) => {
-    const { category } = req.params;
-    console.log("Received category:", category);
-  
-    try {
-      const products = await Product.find({ category });
-      if (!Array.isArray(products)) {
-        throw new Error('Expected an array of products');
-      }
-  
-      console.log("Found products:", products);
-      res.json({ products });
-    } catch (error) {
-      console.log("Error in getProductsByCategory controller", error.message);
-      res.status(500).json({ message: "Server error", error: error.message });
-    }
-  };
-  
+  const { category } = req.params;
+  console.log("Received category:", category);
+
+  try {
+    const products = await Product.find({ category });
+
+    console.log("Found products:", products);
+
+    res.json({ products });
+  } catch (error) {
+    console.log("Error in getProductsByCategory controller", error.message);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
 
 export const getProduct = async (req, res) => {
   const { productId } = req.params;
