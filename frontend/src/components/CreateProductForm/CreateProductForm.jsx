@@ -103,7 +103,7 @@ const CreateProductForm = () => {
                 <label>
                     Price (₴):
                     <input
-                            type="number"
+                        type="number"
                         name="price"
                         value={formData.price}
                         onChange={(e) => setFormData({ ...formData, price: e.target.value })}

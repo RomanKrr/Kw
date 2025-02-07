@@ -8,6 +8,10 @@ export const useProductStore = create((set) => ({
     loading: false,
 
     createProduct: async (data) => {
+        if (data.images.length < 3) {
+            alert("Please upload at least 3 images.");
+            return;
+        }
         set({ loading: true });
         try {
             const res = await axiosInstance.post("/admin/createProduct", data);
@@ -52,7 +56,7 @@ export const useProductStore = create((set) => ({
             } else {
                 console.log("API response:", JSON.stringify(response, null, 2));
                 set({ allProducts: [] });
-            }            
+            }
         } catch (error) {
             console.error("Error fetching products by category:", error.message);
             set({ allProducts: [] });
@@ -67,7 +71,7 @@ export const useProductStore = create((set) => ({
             const res = await axiosInstance.get(`/products/productPage/${productId}`);
             set({ product: res.data.findProduct });
             console.log("API response:", res);
-            
+
         } catch (error) {
             console.error("Error find product:", error.message);
         } finally {

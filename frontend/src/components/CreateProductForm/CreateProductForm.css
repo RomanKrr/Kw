@@ -130,7 +130,7 @@ button[type="submit"]:disabled {
     color: #D44F4F;
 }
 
-.alert_wrapper {
+/* .alert_wrapper {
     background-color: #FFDB5C;
     padding: 1rem;
     border-radius: 8px;
@@ -143,7 +143,56 @@ button[type="submit"]:disabled {
     font-weight: 500;
     font-size: 1.1em;
     color: #333;
+} */
+
+/* Загальний контейнер для спінера і тексту */
+.alert_wrapper {
+    position: fixed; /* Зафіксувати елемент поверх всього */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* напівпрозорий чорний фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Щоб бути поверх інших елементів */
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
 }
+
+/* Анімація для плавного появлення */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Стиль для тексту під час завантаження */
+.load {
+    font-family: "Blinker", serif;
+    font-weight: 500;
+    font-size: 1.5em; /* Трошки більший шрифт для тексту */
+    color: #fff;
+    text-align: center;
+    animation: slideUp 1.5s ease-out infinite; /* Анімація підйому для тексту */
+}
+
+/* Анімація для плавного підйому */
+@keyframes slideUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 
 @media (max-width: 1024px) {
     .form_container {
