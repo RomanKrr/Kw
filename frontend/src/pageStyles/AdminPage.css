@@ -1,25 +1,31 @@
 .admin_nav_container {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 10px;
     padding: 0;
+    justify-content: center;
 }
 
 .admin_nav_container li {
-    padding: 10px 20px;
+    padding: 6px 12px;
     cursor: pointer;
     border-radius: 5px;
     background-color: #f0f0f0;
-    transition: all 0.3s ease-in-out;
+    font-family: "Blinker", serif;
+    font-weight: 300;
+    font-size: 1em;
+    transition: all 0.3s ease;
 }
 
 .admin_nav_container li:hover {
-    background-color: #ddd;
+    background-color: #fafff3;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    color: black;
 }
 
 .active_tab {
-    background-color: #007bff;
+    background-color: #ffffff;
     color: white;
     font-weight: bold;
-    border-bottom: 3px solid #0056b3;
+    border-bottom: 2px solid #0056b3;
 }

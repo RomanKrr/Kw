@@ -5,6 +5,10 @@ import { useProductStore } from "../store/useProductStore";
 import Basket from "../components/Basket/Basket";
 import ShopHeader from "../components/ShopHeader/ShopHeader";
 
+
+import { motion } from "framer-motion";
+
+
 const ProductsByCategory = () => {
   const { allProducts, getAllProductsByCategory, loading } = useProductStore();
   const { category } = useParams();
@@ -98,23 +102,29 @@ const ProductsByCategory = () => {
             {sortProducts().length > 0 ? (
               sortProducts().map((product, index) => (
                 <Link to={`/productPage/${product._id}`} className="card" key={index}>
-                  <div className="card_image_cont">
-                    <img src={product.images[0]} alt={product.productName} className="card_image" />
-                  </div>
-                  <div className="card_info">
-                    <h1 className="card_name">{product.productName}</h1>
-                    <div className="card_info_container">
-                      {category === "clothes" ? (
-                        <p className="card_color">Color
-                          <span className="color_dot black"></span>
-                          <span className="color_dot purple"></span>
-                          <span className="color_dot white"></span>
-                        </p>
-                      ) : null}
-                      <p className="card_price">${product.price}</p>
+                  <motion.div
+                    initial={{ opacity: 0, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                  >
+                    <div className="card_image_cont">
+                      <img src={product.images[0]} alt={product.productName} className="card_image" />
                     </div>
-                  </div>
-                  <div className="card_button">GO TO SHOP</div>
+                    <div className="card_info">
+                      <h1 className="card_name">{product.productName}</h1>
+                      <div className="card_info_container">
+                        {category === "clothes" ? (
+                          <p className="card_color">Color
+                            <span className="color_dot black"></span>
+                            <span className="color_dot purple"></span>
+                            <span className="color_dot white"></span>
+                          </p>
+                        ) : null}
+                        <p className="card_price">${product.price}</p>
+                      </div>
+                    </div>
+                    <div className="card_button">GO TO SHOP</div>
+                  </motion.div>
                 </Link>
               ))
             ) : (

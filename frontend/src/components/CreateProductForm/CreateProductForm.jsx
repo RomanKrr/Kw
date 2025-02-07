@@ -65,10 +65,10 @@ const CreateProductForm = () => {
 
     return (
         <div className="form_container">
-            <h2>Створити новий продукт</h2>
+            <h2>Create New Product</h2>
             <form onSubmit={handleSubmit}>
                 <label>
-                    Назва продукту:
+                    Product Name:
                     <input
                         type="text"
                         name="name"
@@ -101,9 +101,9 @@ const CreateProductForm = () => {
                 </label>
 
                 <label>
-                    Ціна (₴):
+                    Price (₴):
                     <input
-                        type="number"
+                            type="number"
                         name="price"
                         value={formData.price}
                         onChange={(e) => setFormData({ ...formData, price: e.target.value })}
@@ -123,7 +123,7 @@ const CreateProductForm = () => {
                 </label>
 
                 <label>
-                    Категорія:
+                    Category:
                     <select
                         name="category"
                         value={formData.category}
@@ -161,7 +161,7 @@ const CreateProductForm = () => {
                 </label>
 
                 <label>
-                    Опис:
+                    Description:
                     <textarea
                         name="description"
                         value={formData.description}
@@ -171,7 +171,7 @@ const CreateProductForm = () => {
                 </label>
 
                 <label>
-                    Додати зображення:
+                    Add images(min: 3):
                     <input
                         type="file"
                         accept="image/*"
@@ -191,9 +191,9 @@ const CreateProductForm = () => {
                     ))}
                 </div>
 
-                <button type="submit">Додати продукт</button>
+                <button type="submit">Create product</button>
                 {loading && <div className="alert_wrapper">
-                    <p className='load'>Завантаження...</p>
+                    <p className='load'>loading...</p>
                 </div>}
 
             </form>

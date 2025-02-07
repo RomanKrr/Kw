@@ -84,7 +84,6 @@
     font-style: normal;
     opacity: 80%;
 }
-
 .card_button {
     padding: 0.3rem;
     background: #E3FFCE;
@@ -95,6 +94,14 @@
     font-size: 1.2em;
     margin: 1rem;
     cursor: pointer;
+    border: 2px solid transparent; /* Для плавної зміни кольору */
+    border-radius: 8px; /* Закруглені кути для естетики */
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s; /* Плавність анімацій */
+}
+
+.card_button:hover {
+    background: #d7ffaa; /* Зміна кольору фону */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Тінь */
 }
 
 .color_dot {

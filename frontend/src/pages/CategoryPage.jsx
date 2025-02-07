@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion"; 
 import c_img1 from "../assets/photos/clothes-hoodie.jpg";
 import c_img2 from "../assets/photos/c_stickers.jpg";
 import c_img3 from "../assets/photos/s15.jpg";
@@ -15,14 +16,19 @@ const categories = [
 const CategoryItem = ({ category }) => {
   return (
     <Link to={"/category" + category.href}>
-      <div className="categories_card">
+      <motion.div
+        className="categories_card"
+        initial={{ opacity: 0, y: 0 }} // Початкові значення для анімації
+        animate={{ opacity: 1, y: 0 }}  // Анімація при появі
+        transition={{ duration: 0.8, ease: "easeOut" }} // Тривалість анімації
+      >
         <img src={category.imageUrl} alt={category.name} />
         <h2 className="categories_card-title">
           {category.name}
           <br />
           {category.jpName}
         </h2>
-      </div>
+      </motion.div>
     </Link>
   );
 };

@@ -22,7 +22,6 @@ const ProductImages = ({ product }) => {
                             <img key={index} src={image} alt={`Product Image ${index}`} className="pr_img" />
                         ))}
                     </div>
-                    {/* Якщо зображень більше ніж 3, додаємо лінк */}
                     {product.images.length > 3 && (
                         <div onClick={openModal} className="view-all-photos">
                             View all photos
@@ -33,7 +32,6 @@ const ProductImages = ({ product }) => {
                 <p>No images available</p>
             )}
 
-            {/* Модальне вікно */}
             {isModalOpen && (
                 <div className="modal">
                     <div className="modal-content">

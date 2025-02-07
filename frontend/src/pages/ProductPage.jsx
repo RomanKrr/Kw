@@ -55,7 +55,7 @@ const ProductPage = () => {
     return (
         <section>
             <div className="product_container">
-                <ShopHeader/>
+                <ShopHeader cat={categorySymbols[product?.category]} />
                 {/* <div className="clothes_header">
                     <CiShoppingBasket className="basket_logo" />
                     <div className="categories_name">
@@ -76,7 +76,7 @@ const ProductPage = () => {
                 <div className="product_body">
                     <div className="product_body_container">
                         <div className="">
-                            <ProductImages product={product}/>
+                            <ProductImages product={product} />
                         </div>
                         <div className="product_info_container">
                             <div className="main_info">
@@ -115,7 +115,7 @@ const ProductPage = () => {
                                         </select>
                                     </div>
 
-                                    <a href="#">view grid of size</a>
+                                    <a href="https://m.media-amazon.com/images/I/61auX8BU8JL._AC_UY1000_.jpg">view grid of size</a>
                                 </>
                             ) : (
                                 // <div className="product_description">
