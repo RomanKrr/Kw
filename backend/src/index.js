@@ -4,7 +4,7 @@ import cors from "cors"
 
 import path from "path"
 
-// import adminRoute from "./routes/admin.route.js"
+import adminRoute from "./routes/admin.route.js"
 import { connectDB } from "./lib/db.js";
 import productRoute from "./routes/products.route.js"
 
@@ -21,7 +21,7 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 
-// app.use("/api/admin", adminRoute);
+app.use("/api/admin", adminRoute);
 app.use("/api/products", productRoute);
 
 
