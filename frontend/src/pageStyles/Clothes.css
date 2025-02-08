@@ -36,6 +36,7 @@
     overflow: hidden;
     height: 100%;
     width: 100%;
+    position: relative;
 }
 
 .card_image:hover {
@@ -183,4 +184,19 @@
         max-width: 100%;
         display: block;
     }
+}
+
+.low_in_storage{
+    color: var(--text-color);
+    position: absolute;
+    z-index: 10;
+    top: 1%;
+    right: 0;
+    background: #CF7070;
+    border-radius: 5px 3px 3px 5px;
+    padding: 0.5rem 1rem;
+    font-size: 1.1em;
+    font-family: "Blinker", serif;
+    font-weight: 300;
+    font-style: normal;
 }

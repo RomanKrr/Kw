@@ -24,12 +24,12 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="/category/:category" element={<ProductsByCategory />} />
-          <Route path="/adminPage" element={<AdminPage />} />
           <Route path="/productPage/:productId" element={<ProductPage />} />
         </Route>
 
         <Route element={<Blank />}>
           <Route path="/categoryPage" element={<CategoryPage />} />
+          <Route path="/adminPage" element={<AdminPage />} />
         </Route>
       </Routes>
       <Toaster />

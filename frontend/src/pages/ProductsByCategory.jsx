@@ -110,6 +110,8 @@ const ProductsByCategory = () => {
                     >
                       <div className="card_image_cont">
                         <img src={product.images[0]} alt={product.productName} className="card_image" />
+                        
+                        {product?.countInStorage < 5 ? (<p className="low_in_storage">Almost Gone</p>) : (null)}
                       </div>
                       <div className="card_info">
                         <h1 className="card_name">{product.productName}</h1>
