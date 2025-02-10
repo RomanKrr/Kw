@@ -200,3 +200,8 @@
     font-weight: 300;
     font-style: normal;
 }
+
+
+.sold_out{
+    opacity: 0.7;
+}

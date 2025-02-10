@@ -5,6 +5,8 @@
   --bg-color: #ffffff;
   --text-color: #000000;
   --cover-text-color: #ffffff;
+  --header-height: 80px;
+  --header-height-mobile: 120px;
 }
 
 * {
@@ -82,7 +84,8 @@ select {
   color: black !important;
 }
 
-select:focus {
-  outline: none; /* Вимикає стандартний контур при фокусуванні */
-  border: 1px solid #ccc; /* Залишає той самий бордер, який був */
-}
+/* select:focus {
+  outline: none; 
+  border: 1px solid #ccc;
+} */
+

@@ -60,7 +60,6 @@ const ProductsByCategory = () => {
     "body-kits": "ボディキット"
   };
 
-
   return (
     <section>
       {loading ? (
@@ -101,35 +100,50 @@ const ProductsByCategory = () => {
 
             <div className="card_container">
               {sortProducts().length > 0 ? (
-                sortProducts().map((product, index) => (
-                  <Link to={`/productPage/${product._id}`} className="card" key={index}>
-                    <motion.div
-                      initial={{ opacity: 0, y: 0 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, ease: "easeOut" }}
+                sortProducts().map((product, index) => {
+                  const isSoldOut = product?.countInStorage === 0;
+                  return (
+                    <Link
+                      to={`/productPage/${product._id}`}
+                      className={`card ${isSoldOut ? "sold_out" : ""}`}
+                      key={index}
                     >
-                      <div className="card_image_cont">
-                        <img src={product.images[0]} alt={product.productName} className="card_image" />
-                        
-                        {product?.countInStorage < 5 ? (<p className="low_in_storage">Almost Gone</p>) : (null)}
-                      </div>
-                      <div className="card_info">
-                        <h1 className="card_name">{product.productName}</h1>
-                        <div className="card_info_container">
-                          {category === "clothes" ? (
-                            <p className="card_color">Color
-                              <span className="color_dot black"></span>
-                              <span className="color_dot purple"></span>
-                              <span className="color_dot white"></span>
-                            </p>
+                      <motion.div
+                        initial={{ opacity: 0, y: 0 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                      >
+                        <div className="card_image_cont">
+                          <img
+                            src={product.images[0]}
+                            alt={product.productName}
+                            className="card_image"
+                          />
+                          {isSoldOut ? (
+                            <p className="low_in_storage">Sold Out</p>
+                          ) : product?.countInStorage < 5 ? (
+                            <p className="low_in_storage">Almost Gone</p>
                           ) : null}
-                          <p className="card_price">${product.price}</p>
                         </div>
-                      </div>
-                      <div className="card_button">GO TO SHOP</div>
-                    </motion.div>
-                  </Link>
-                ))
+                        <div className="card_info">
+                          <h1 className="card_name">{product.productName}</h1>
+                          <div className="card_info_container">
+                            {category === "clothes" ? (
+                              <p className="card_color">
+                                Color
+                                <span className="color_dot black"></span>
+                                <span className="color_dot purple"></span>
+                                <span className="color_dot white"></span>
+                              </p>
+                            ) : null}
+                            <p className="card_price">${product.price}</p>
+                          </div>
+                        </div>
+                        <div className="card_button">GO TO SHOP</div>
+                      </motion.div>
+                    </Link>
+                  );
+                })
               ) : (
                 <p>No products found for this category.</p>
               )}

@@ -1,0 +1,63 @@
+:root {
+    --gap-size: 10px; /* Відстань між зображеннями */
+}
+
+.gallery {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.gallery_container {
+    column-count: 4; 
+    column-gap: var(--gap-size);
+    width: 95%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.gallery_item {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: var(--gap-size);
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery_item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.gallery_item:hover {
+    transform: scale(1.02);
+}
+
+.gallery_item:hover img {
+    opacity: 0.95;
+}
+
+@media (max-width: 1200px) {
+    .gallery_container {
+        column-count: 3; /* 3 колонки на планшетах */
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery_container {
+        column-count: 2; /* 2 колонки на мобільних */
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery_container {
+        column-count: 1; /* 1 колонка на маленьких екранах */
+    }
+}

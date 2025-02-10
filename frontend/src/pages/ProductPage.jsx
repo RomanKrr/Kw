@@ -50,6 +50,7 @@ const ProductPage = () => {
             size: selectedSize,
             image: product.images?.[0],
             quantity: 1,
+            countInStorage: product.countInStorage,
         })
     }
     return (

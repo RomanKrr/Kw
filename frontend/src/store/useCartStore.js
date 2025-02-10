@@ -12,6 +12,10 @@ export const useCartStore = create((set, get) => ({
             return;
         }
 
+        if(product.countInStorage === 0) {
+            toast.error("Sorry, now we don`t have this product");
+            return
+        }
         const existingCart = get().cart;
         const updateCart = [...existingCart, product]
         set({ cart: updateCart })

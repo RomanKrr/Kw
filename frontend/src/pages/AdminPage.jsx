@@ -3,10 +3,12 @@ import CreateProductForm from '../components/CreateProductForm/CreateProductForm
 import ProductsList from '../components/ProductsList/ProductsList';
 
 import "../pageStyles/AdminPage.css"
+import CreateGalleryImg from '../components/CreateGalleryImg/CreateGalleryImg';
 
 const tabs = [
     { id: "create", label: "Create Product" },
     { id: "products", label: "Products" },
+    { id: "createGallery", label: "Gallery" },
     // { id: "analytics", label: "Analytics" },
 ];
 
@@ -34,6 +36,7 @@ const AdminPage = () => {
                 </div>
                 {activeTab === "create" && <CreateProductForm />}
                 {activeTab === "products" && <ProductsList />}
+                {activeTab === "createGallery" && <CreateGalleryImg />}
                 {/* {activeTab === "analytics" && <AnalyticsTab />} */}
             </div>
         </section>
