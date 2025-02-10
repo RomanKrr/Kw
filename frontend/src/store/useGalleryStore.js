@@ -19,15 +19,15 @@ export const useGalleryStore = create((set) => ({
             set({ loading: false });
         }
     },
-    // createGalleryImage: async () => {
-    //     set({ loading: true });
-    //     try {
-    //         const res = await axiosInstance.get("/gallery/getGalleryImages");
-    //         set({ image: res.data.urls });
-    //     } catch (error) {
-    //         console.error("Error fetching products:", error);
-    //     } finally {
-    //         set({ loading: false });
-    //     }
-    // }
+    getImages: async () => {
+        set({ loading: true });
+        try {
+            const res = await axiosInstance.get("/gallery/getGalleryImages");
+            set({ image: res.data.urls });
+        } catch (error) {
+            console.error("Error fetching products:", error);
+        } finally {
+            set({ loading: false });
+        }
+    }
 }));

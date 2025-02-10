@@ -132,12 +132,17 @@
 .sort_side{
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: space-between;
     color: var(--text-color);
     font-size: 1.1em;
     font-family: "Blinker", serif;
     font-weight: 300;
     padding: 0.3rem 1.5rem;
+}
+
+.sort_side p {
+  margin-top: 0.5rem;
+
 }
 @media (max-width: 1318px) {
     .card_container {

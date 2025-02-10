@@ -83,7 +83,9 @@ const ProductsByCategory = () => {
           </div>
         </div> */}
             <div className="sort_side">
-              {/* <div className="filter_btn"></div> */}
+              <Link to="/categoryPage">
+                <p>CATEGORY</p>
+              </Link>              
               <div className="sort_by">
                 <select value={selectedSort} onChange={sortChange}>
                   <option value="">Sort By</option>

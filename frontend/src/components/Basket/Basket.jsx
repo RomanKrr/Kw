@@ -3,8 +3,10 @@ import { useCartStore } from "../../store/useCartStore";
 import { useEffect, useState } from "react";
 import "../Basket/Basket.css";
 
+import { CiTrash } from "react-icons/ci";
+
 const Basket = ({ openBskt, closeBasket }) => {
-    const { cart, getCartItem, deleteAllItems } = useCartStore();
+    const { cart, getCartItem, deleteAllItems, deleteItem, sendMail } = useCartStore();
     const [isClosed, setIsClosed] = useState(false);
 
     useEffect(() => {
@@ -17,6 +19,32 @@ const Basket = ({ openBskt, closeBasket }) => {
         setIsClosed(true);
         closeBasket();
     };
+
+    // calculateExpenses(itemArray: ExpensesBreakDown ) {
+    //     let cost: number = itemArray
+    //         .map((a) => a.cost)
+    //         .reduce(function (a, b) {
+    //             return a + b;
+    //         });
+    // }
+
+
+    const [total, setTotal] = useState(0);
+
+    useEffect(() => {
+        if (cart.length > 0) {
+            const totalAmount = cart
+                .map((item) => item.price)
+                .reduce((acc, price) => acc + price, 0);
+            setTotal(totalAmount);
+        }
+    }, [cart]);
+
+    // const total = cart.reduce((a, b) => ({price: a.price + b.price}));
+    // const deleteItem = (some) =>{
+    //     console.log(some);
+
+    // }
 
     return (
         <div className={`basket ${openBskt ? 'open' : ''} ${isClosed ? 'closed' : ''}`}>
@@ -46,6 +74,7 @@ const Basket = ({ openBskt, closeBasket }) => {
                                             <div className="item_count">1</div>
                                             <div className="item_add minus">-</div>
                                         </div>
+                                        <CiTrash className="delete_btn" onClick={() => deleteItem(item.id)} />
                                     </div>
                                 </div>
                                 <hr />
@@ -54,9 +83,9 @@ const Basket = ({ openBskt, closeBasket }) => {
                     )}
                 </div>
                 <div className="basket_total">
-                    <p>TOTAL: 560$</p>
+                    <p>TOTAL: {total}$</p>
                 </div>
-                <div className="basket_btn">
+                <div className="basket_btn" onClick={sendMail}>
                     Proceed To Checkout
                 </div>
                 <div className="basket_delete_btn" onClick={deleteAllItems}>

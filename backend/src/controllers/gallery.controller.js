@@ -20,7 +20,7 @@ export const createImage = async (req, res) => {
             await newImage.save();
 
             res.status(200).json({
-                images: newImage.images
+                images: newImage.urls
             })
         } else {
             res.status(400).json({ message: "Invalid data" });
@@ -32,14 +32,14 @@ export const createImage = async (req, res) => {
 }
 
 
-// export const getGalleryImages = async (req, res) => {
-//     try {
-//         const images = await Image.find({}, "urls");
-//         const allUrls = images.flatMap((img) => img.urls);
+export const getGalleryImages = async (req, res) => {
+    try {
+        const images = await Image.find({}, "urls");
+        const allUrls = images.flatMap((img) => img.urls);
 
-//         res.json({ urls: allUrls });
-//     } catch (error) {
-//         console.error("Error fetching gallery images:", error.message);
-//         res.status(500).json({ message: "Server error", error: error.message });
-//     }
-// };
+        res.json({ urls: allUrls });
+    } catch (error) {
+        console.error("Error fetching gallery images:", error.message);
+        res.status(500).json({ message: "Server error", error: error.message });
+    }
+};

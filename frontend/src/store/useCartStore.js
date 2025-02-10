@@ -12,7 +12,7 @@ export const useCartStore = create((set, get) => ({
             return;
         }
 
-        if(product.countInStorage === 0) {
+        if (product.countInStorage === 0) {
             toast.error("Sorry, now we don`t have this product");
             return
         }
@@ -31,9 +31,28 @@ export const useCartStore = create((set, get) => ({
     },
 
     deleteAllItems: () => {
-        set({ cart: [] }); 
-        localStorage.removeItem("cart"); 
+        set({ cart: [] });
+        localStorage.removeItem("cart");
         toast.success("Cart cleared!");
-    }    
+    },
+
+    deleteItem: (productId) => {
+        const updatedCartItems = get().cart.filter(item => item.id !== productId);
+        localStorage.setItem('cart', JSON.stringify(updatedCartItems));
+    },
+
+    // В оновленому функціоналі sendMail
+    sendMail: async () => {
+        set({ loading: true });
+        try {
+            const res = await axiosInstance.post("/mail/sendMail", get().cart); // Відправляємо кошик на сервер
+            toast.success("Email sent successfully!");
+        } catch (error) {
+            console.error("Error sending products:", error);
+            toast.error("Error sending email");
+        } finally {
+            set({ loading: false });
+        }
+    }
 }));
 

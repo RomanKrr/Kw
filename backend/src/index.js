@@ -8,6 +8,7 @@ import adminRoute from "./routes/admin.route.js"
 import { connectDB } from "./lib/db.js";
 import productRoute from "./routes/products.route.js"
 import galleryRoute from "./routes/gallery.route.js"
+// import mailRoute from "./routes/mail.route.js"
 
 
 dotenv.config();
@@ -24,7 +25,8 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 app.use("/api/admin", adminRoute);
 app.use("/api/products", productRoute);
-// app.use("/api/gallery", galleryRoute);
+app.use("/api/gallery", galleryRoute);
+// app.use("/api/mail", mailRoute);
 
 
 const PORT = process.env.PORT;

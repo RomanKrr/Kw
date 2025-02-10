@@ -13,16 +13,16 @@ import { useEffect } from "react";
 const images = [img2, img3, img4, img5, img2, img3, img4, img5, img6, img2, img3, img4, img5, img2, , img1,img3, img4, img5, img6, img3, img4, img5, img1,];
 
 const Gallery = () => {
-    const { image , createGalleryImage} = useGalleryStore();
+    const { image , getImages} = useGalleryStore();
     
     useEffect(()=>{
-        createGalleryImage()
-    }, [createGalleryImage])
+        getImages()
+    }, [getImages])
     return (
         <section className="gallery">
-            {images.length > 0 ? (
+            {image.length > 0 ? (
                 <div className="gallery_container">
-                    {images.map((img, index) => (
+                    {image.map((img, index) => (
                         <motion.div
                             key={index}
                             className="gallery_item"
@@ -37,7 +37,7 @@ const Gallery = () => {
                 </div>
             ) : (
                 <p className="loading_text">Loading images...</p>
-            )}
+            )} 
         </section>
     );
 };

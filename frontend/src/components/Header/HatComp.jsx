@@ -25,7 +25,7 @@ const HatComp = () => {
                             <li>HOME</li>
                         </Link>
                         <Link to="/categoryPage">
-                            <li>CATEGORY</li>
+                            <li>SHOP</li>
                         </Link>
                         <Link to="/gallery">
                             <li>GALLERY</li>

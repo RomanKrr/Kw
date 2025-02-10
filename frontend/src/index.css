@@ -71,12 +71,17 @@ select {
   font-family: "Blinker", serif;
   font-weight: 300;
   font-style: normal;
-  color: black; /* Примусово встановлює чорний колір тексту */
-  appearance: none; /* Вимикає стандартне стилізування iOS */
-  -webkit-appearance: none; /* Вимикає стандартне стилізування в Safari */
+  color: black;
+  /* Примусово встановлює чорний колір тексту */
+  appearance: none;
+  /* Вимикає стандартне стилізування iOS */
+  -webkit-appearance: none;
+  /* Вимикає стандартне стилізування в Safari */
   -moz-appearance: none;
-  border: 1px solid #ccc; /* Додає тонку рамку для кращого вигляду */
-  background-color: white; /* Фон білий, щоб не було зміни кольору */
+  border: 1px solid #ccc;
+  /* Додає тонку рамку для кращого вигляду */
+  background-color: white;
+  /* Фон білий, щоб не було зміни кольору */
   padding: 5px;
 }
 
@@ -88,4 +93,3 @@ select {
   outline: none; 
   border: 1px solid #ccc;
 } */
-
