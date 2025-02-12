@@ -6,7 +6,7 @@ import "../Basket/Basket.css";
 import { CiTrash } from "react-icons/ci";
 
 const Basket = ({ openBskt, closeBasket }) => {
-    const { cart, getCartItem, deleteAllItems, deleteItem, sendMail } = useCartStore();
+    const { cart, getCartItem, deleteAllItems, deleteItem, addOrder } = useCartStore();
     const [isClosed, setIsClosed] = useState(false);
 
     useEffect(() => {
@@ -85,7 +85,7 @@ const Basket = ({ openBskt, closeBasket }) => {
                 <div className="basket_total">
                     <p>TOTAL: {total}$</p>
                 </div>
-                <div className="basket_btn" onClick={sendMail}>
+                <div className="basket_btn" onClick={addOrder}>
                     Proceed To Checkout
                 </div>
                 <div className="basket_delete_btn" onClick={deleteAllItems}>

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useProductStore } from "../../store/useProductStore";
+
 import "../ProductsList/ProductsList.css";
 
 import { CiTrash } from "react-icons/ci";
@@ -40,7 +41,10 @@ const ProductsList = () => {
                                 <td>${product.price.toFixed(2)}</td>
                                 <td>{product.countInStorage || 0}</td>
                                 <td>
-                                    <GoPencil  onClick={() => deleteProduct(product._id)} />
+                                    {
+                                    <GoPencil onClick={() => editProduct(product._id)} />
+
+                                    }
                                 </td>
                                 <td>
                                     <CiTrash onClick={() => deleteProduct(product._id)} />

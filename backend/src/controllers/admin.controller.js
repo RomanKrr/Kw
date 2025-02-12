@@ -1,4 +1,5 @@
 import cloudinary from "../lib/cloudinary.js";
+import Order from "../models/order.model.js";
 import Product from "../models/product.model.js";
 
 export const createProduct = async (req, res) => {
@@ -71,5 +72,36 @@ export const deleteProduct = async (req, res) => {
     } catch (error) {
         console.log("Error in deleteProduct controller", error.message);
         res.status(500).json({ message: "Server error" });
+    }
+}
+
+export const getAllOrders = async (req, res) => {
+    try {
+        const orders = await Order.find().populate({
+            path: "products.product",
+            model: "Product",
+            select: ['productName', 'images', 'price', 'category']
+        });
+
+        const products = orders.flatMap(order =>
+            order.products.map(p => p.product)
+        );
+
+        res.status(200).json({ products });
+    } catch (error) {
+        console.error("Error fetching orders:", error.message);
+        res.status(500).json({ message: "Server error", error: error.message });
+    }
+};
+
+
+export const getProductAndUpdate = async (req, res) => {
+    const { productId, updateData } = req.body;
+    try {
+        const fProduct = await Product.findById({ productId });
+        res.status(200).json({ fProduct })
+    } catch (error) {
+        console.error("Error get product ID:", error.message);
+        res.status(500).json({ message: "Server error", error: error.message });
     }
 }

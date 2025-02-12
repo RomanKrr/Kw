@@ -4,11 +4,15 @@ import ProductsList from '../components/ProductsList/ProductsList';
 
 import "../pageStyles/AdminPage.css"
 import CreateGalleryImg from '../components/CreateGalleryImg/CreateGalleryImg';
+import OrderList from '../components/OrderList/OrderList';
+import Edit from '../components/Edit/Edit';
 
 const tabs = [
     { id: "create", label: "Create Product" },
     { id: "products", label: "Products" },
     { id: "createGallery", label: "Gallery" },
+    { id: "orders", label: "Orders" },
+    { id: "edit", label: "Edit" },
     // { id: "analytics", label: "Analytics" },
 ];
 
@@ -37,6 +41,8 @@ const AdminPage = () => {
                 {activeTab === "create" && <CreateProductForm />}
                 {activeTab === "products" && <ProductsList />}
                 {activeTab === "createGallery" && <CreateGalleryImg />}
+                {activeTab === "orders" && <OrderList />}
+                {activeTab === "edit" && <Edit />}
                 {/* {activeTab === "analytics" && <AnalyticsTab />} */}
             </div>
         </section>

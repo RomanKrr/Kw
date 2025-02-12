@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
-import "../CreateProductForm/CreateProductForm.css";
+import React, { useState } from 'react'
 import { useProductStore } from '../../store/useProductStore';
 
-import { CiTrash } from "react-icons/ci";
-
-const CreateProductForm = () => {
+const Edit = () => {
     const { createProduct, loading } = useProductStore();
 
     const [formData, setFormData] = useState({
@@ -197,9 +194,9 @@ const CreateProductForm = () => {
                 </div>}
 
             </form>
-            
+
         </div>
     );
-};
+}
 
-export default CreateProductForm;
+export default Edit

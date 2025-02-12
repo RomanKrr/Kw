@@ -6,6 +6,7 @@ export const useProductStore = create((set) => ({
     product: null,
     allProducts: [],
     loading: false,
+    orders: [],
 
     createProduct: async (data) => {
         if (data.images.length < 3) {
@@ -76,6 +77,24 @@ export const useProductStore = create((set) => ({
             console.error("Error find product:", error.message);
         } finally {
             set({ loading: false });
+        }
+    },
+
+    getAllOrders: async () => {
+        try {
+            const res = await axiosInstance.get("/admin/getAllOrders");
+            set({ orders: res.data.products })
+        } catch (error) {
+            console.error("Error fetching products:", error);
+        }
+    },
+
+    editProduct: async (productId)=> {
+        try {
+            const res = await axiosInstance.post("", productId);
+
+        } catch (error) {
+            
         }
     }
 }));
